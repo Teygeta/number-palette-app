@@ -4,14 +4,11 @@
 
 body {
   background-color: #0e1425;
-  color: white;
-  font-size: 30px;
-  overflow-x: hidden;
+  @apply text-3xl text-white overflow-x-hidden font-sans
 }
 
 .app {
-  max-width: 1100px;
-  margin: 0 auto;
+  @apply max-w-6xl mx-auto
 }
 
 .palette-card {
@@ -28,18 +25,46 @@ body {
   border: 1px solid rgb(218, 218, 218);
 }
 
-.btn, .btn-merge {
+.hide {
+  @apply hidden
+}
+
+
+.palette-card:hover > .hide {
+  @apply block
+}
+
+.palette-card:last-child:hover > .hide {
+  @apply hidden
+}
+
+
+.btn {
   transition: 0.3s;
   background-color: #0a0a0a;
   border-radius: 9999px;
   border: 1px solid #424242;
-  font-size: 20px;
+  font-size: 18px;
   padding: 0.2rem 1rem;
 }
 
 .btn:hover {
   background-color: var(--base-color);
   border: 1px solid rgb(177, 177, 177);
+}
+
+.btn-merge {
+  transition: 0.3s;
+  background-color: #0a0a0a;
+  border-radius: 9999px;
+  border: 1px solid #424242;
+  font-size: 18px;
+  padding: 0.2rem 1rem;
+  position: absolute;
+  right: -25px;
+  padding: .5rem 1rem;
+  z-index: 1;
+  margin: 10rem 0;
 }
 
 .btn-del {
@@ -52,37 +77,15 @@ body {
   color: #fff;
 }
 
-.btn-merge {
-  position: absolute;
-  right: -25px;
-  padding: 1rem;
-  z-index: 9999;
-}
-
-
 .btn-merge:hover {
   background-color: #1a1a1a;
   border: 1px solid rgb(177, 177, 177);
-}
-
-.btn-merge:last-child {
-  display: none;
 }
 
 .btn-disable {
   color: #464646;
   border-radius: 9999px;
   border: 1px solid #424242;
-  font-size: 20px;
+  font-size: 18px;
   padding: 0.2rem 1rem;
 }
-
-.hide {
-  display: none;
-}
-
-.palette-card:hover > .hide {
-  display: block;
-}
-
-

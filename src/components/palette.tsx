@@ -14,7 +14,7 @@ function Palette({ onClick, content, block, onClickDelete, onClickMerge }: Palet
       <span onClick={onClick} className={'palette-card'}>
         {content}
         <button onClick={onClickDelete} className={`${block ? 'btn-del hide' : 'hidden'}`}>x</button>
-        <button onClick={onClickMerge} className={'btn-merge hide'}>+</button>
+        <button onClick={onClickMerge} className={"btn-merge hide"}>+</button>
       </span>
     </>
   )

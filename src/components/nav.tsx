@@ -10,7 +10,7 @@ type NavProps = {
 export default function Nav({ addClick, changeAllClick, resetClick, palettes }: NavProps) {
 	return (
 		<>
-			<div className={"text-center flex justify-around m-4 w-full"}>
+			<div className={"nav text-center flex justify-around m-4"}>
 				<button onClick={addClick} className={`${palettes.length < 10 ? "btn" : "btn-disable cursor-not-allowed"}`}>
 					Add palette
 				</button>
