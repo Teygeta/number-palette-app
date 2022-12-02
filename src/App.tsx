@@ -67,12 +67,10 @@ function App() {
 	const handleMerge = (item: PaletteType, index: number) => {
 		if (palettes.length < 10) {
 			const calcPalette = Math.floor(((item.value + palettes[index + 1].value) / 2));
-			/* const newPalette = [...palettes, { value: calcPalette, id: palettes.length + 1 }]; */
 			let palettesArray = [...palettes];
 			palettesArray.splice(index + 1, 0, { value: calcPalette, id: item.id + 1 });
 			setPalette(palettesArray);
 		} else false;
-		/* TODO trovare il modo di inserire il nuovo oggetto in un punto preciso dell'oggetto splice(index, elem da replicare, elem)*/
 	}
 
 	return (
