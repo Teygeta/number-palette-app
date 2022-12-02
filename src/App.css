@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
+:root {
+  --base-color: #1E293B
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  background-color: #0e1425;
   color: white;
+  font-size: 30px;
+  overflow-x: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.palette-card {
+  transition: 0.4s;
+  border: 1px solid #424242;
+  background-color: var(--base-color);
+  user-select: none;
+  @apply relative w-[400px] flex items-center justify-center h-[80vh] rounded-xl;
 }
+
+.palette-card:hover {
+  background-color: #0a0a0a;
+  cursor: pointer;
+  border: 1px solid rgb(218, 218, 218);
+}
+
+.btn, .btn-merge {
+  transition: 0.3s;
+  background-color: #0a0a0a;
+  border-radius: 9999px;
+  border: 1px solid #424242;
+  font-size: 20px;
+  padding: 0.2rem 1rem;
+}
+
+.btn:hover {
+  background-color: var(--base-color);
+  border: 1px solid rgb(177, 177, 177);
+}
+
+.btn-del {
+  transition: 0.3s;
+  color: #8b8b8b;
+  @apply absolute top-[45px]
+}
+
+.btn-del:hover {
+  color: #fff;
+}
+
+.btn-merge {
+  position: absolute;
+  right: -25px;
+  padding: 1rem;
+  z-index: 9999;
+}
+
+
+.btn-merge:hover {
+  background-color: #1a1a1a;
+  border: 1px solid rgb(177, 177, 177);
+}
+
+.btn-merge:last-child {
+  display: none;
+}
+
+.btn-disable {
+  color: #464646;
+  border-radius: 9999px;
+  border: 1px solid #424242;
+  font-size: 20px;
+  padding: 0.2rem 1rem;
+}
+
+.hide {
+  display: none;
+}
+
+.palette-card:hover > .hide {
+  display: block;
+}
+
+
