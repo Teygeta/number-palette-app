@@ -70,7 +70,7 @@ function App() {
 			let palettesArray = [...palettes];
 			palettesArray.splice(index + 1, 0, { value: calcPalette, id: item.id + 1 });
 			setPalette(palettesArray);
-		} else false;
+		} else alert("You can't add more than 10 palettes");
 	}
 
 	return (
