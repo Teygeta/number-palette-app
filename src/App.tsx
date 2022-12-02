@@ -14,12 +14,16 @@ function App() {
 		return Math.floor(Math.random() * 100);
 	};
 
+	const genRandomId = () => {
+		return Math.floor(Math.random() * 1000);
+	};
+
 	const initPalette = [
-		{ value: genRandomNum(), id: 1 },
-		{ value: genRandomNum(), id: 2 },
-		{ value: genRandomNum(), id: 3 },
-		{ value: genRandomNum(), id: 4 },
-		{ value: genRandomNum(), id: 5 },
+		{ value: genRandomNum(), id: genRandomId() },
+		{ value: genRandomNum(), id: genRandomId() },
+		{ value: genRandomNum(), id: genRandomId() },
+		{ value: genRandomNum(), id: genRandomId() },
+		{ value: genRandomNum(), id: genRandomId() },
 	]
 
 	const [palettes, setPalette] = useState(initPalette);
@@ -46,8 +50,6 @@ function App() {
 		if (palettes.length < 10) {
 			const newPalette = [...palettes, { value: genRandomNum(), id: palettes.length + 1 },];
 			setPalette(newPalette);
-			console.log(palettes[0]);
-
 		} else false;
 	};
 
@@ -62,15 +64,13 @@ function App() {
 			: false;
 	};
 
-	const handleMerge = (item: PaletteType) => {
+	const handleMerge = (item: PaletteType, index: number) => {
 		if (palettes.length < 10) {
-			const calcPalette = Math.floor(((item.value + palettes[item.id].value) / 2));
+			const calcPalette = Math.floor(((item.value + palettes[index + 1].value) / 2));
 			/* const newPalette = [...palettes, { value: calcPalette, id: palettes.length + 1 }]; */
 			let palettesArray = [...palettes];
-			palettesArray.splice(item.id, 0, { value: calcPalette, id: palettes.length + 1 });
-			console.log(palettesArray);
+			palettesArray.splice(index + 1, 0, { value: calcPalette, id: item.id + 1 });
 			setPalette(palettesArray);
-
 		} else false;
 		/* TODO trovare il modo di inserire il nuovo oggetto in un punto preciso dell'oggetto splice(index, elem da replicare, elem)*/
 	}
@@ -98,7 +98,7 @@ function App() {
 							}}
 							onClickMerge={(e: React.ChangeEvent<HTMLInputElement>) => {
 								e.stopPropagation();
-								handleMerge(item)
+								handleMerge(item, index)
 							}}
 						/>
 					);
